@@ -33,7 +33,7 @@ public class Main {
         System.out.println("~~~~~~~~~~MENU~~~~~~~~~~\n\t1. Play All Songs\n\t2. Shuffle Songs/Play\n\t3. Play One Song\n\t4. Create Song Queue\n\t5. View Songs\n");
 
         while(running) {
-            System.out.println("Type a Number: ");
+            System.out.println("\nType a Number: ");
             ph = input.nextLine();
             switch(ph) {
                 case "1":
@@ -58,10 +58,11 @@ public class Main {
     private static void MainLoop(ArrayList<String> soundfiles, ArrayList<Integer> randomlyused, ArrayList<String> songnames, int currentsong, int shuffle, String... extras) throws java.lang.Exception {
 
         if(extras.length > 0) {
-            String ph;
-            Scanner input_ = new Scanner(System.in);
+
             switch(extras[0]) {
                 case "OneSong":
+                    String ph;
+                    Scanner input_ = new Scanner(System.in);
                     System.out.println("Song Name? [First Letter of Every Word Capitalized] : ");
                     ph = input_.nextLine();
                     if(songnames.contains(ph + ".wav")) {
@@ -73,6 +74,10 @@ public class Main {
                     return;
                 case "Queue":
 
+                case "ViewSongs":
+                    for(String element : songnames) {
+                        System.out.println("\t" + element);
+                    }
             }
 
         } else {
