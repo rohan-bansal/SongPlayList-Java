@@ -1,7 +1,7 @@
 # SongPlayList-Java
 A playlist of songs stored on your computer, playable (very much like spotify) from the terminal.
 
-_100% complete_
+_95% complete_
 
 ## Features
 
@@ -9,6 +9,8 @@ _100% complete_
 - Create queues to play songs sequentially
 - View song list
 - Shuffle Play
+
+**NOTICE** Program may not work, need to add support for other files
 
 
 ### How to Download
