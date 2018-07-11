@@ -58,26 +58,56 @@ public class Main {
     private static void MainLoop(ArrayList<String> soundfiles, ArrayList<Integer> randomlyused, ArrayList<String> songnames, int currentsong, int shuffle, String... extras) throws java.lang.Exception {
 
         if(extras.length > 0) {
-
+            String ph;
+            Scanner input_ = new Scanner(System.in);
             switch(extras[0]) {
                 case "OneSong":
-                    String ph;
-                    Scanner input_ = new Scanner(System.in);
-                    System.out.println("Song Name? [First Letter of Every Word Capitalized] : ");
-                    ph = input_.nextLine();
+                    if(extras.length > 1) {
+                        ph = extras[1];
+                        ph = ph.replace(".wav", "");
+
+                    } else {
+                        System.out.println("Song Name? : ");
+                        ph = input_.nextLine();
+                    }
                     if(songnames.contains(ph + ".wav")) {
-                        System.out.print("==========Song #" + (songnames.indexOf(ph + ".wav") + 1) + " - " + (ph + ".wav") + " =========\n\n");
+                        System.out.print("\r==========Song #" + (songnames.indexOf(ph + ".wav") + 1) + " - " + (ph + ".wav") + " =========\n\n");
                         playSong(soundfiles, soundfiles.get(songnames.indexOf(ph + ".wav")));
                         TimeUnit.SECONDS.sleep(calculateDuration(soundfiles, songnames.indexOf(ph + ".wav") + 1));
                     }
-                    input_.close();
                     return;
                 case "Queue":
+                    LinkedList<String> queuedsongs = new LinkedList<>();
+                    System.out.println("Type each song and press 'ENTER' When done, type 'DONE'. \n[To view the list, type viewlist]\nTo quit, type 'q'\n");
+                    while(true) {
+                        System.out.println(">> ");
+                        ph = input_.nextLine();
+                        if(songnames.contains(ph + ".wav")) {
+                            queuedsongs.add(ph + ".wav");
+                        } else if(ph.equals("DONE") || ph.equals("viewlist") || ph.equals("q")) {
+                            if(ph.equals("DONE")) {
+                                Iterator<String> i = queuedsongs.iterator();
+                                while(i.hasNext()) {
+                                    MainLoop(soundfiles, randomlyused, songnames, currentsong, 0, "OneSong", i.next());
+                                }
+                            } else if (ph.equals("viewlist")) {
+                                System.out.print("\n");
+                                MainLoop(soundfiles, randomlyused, songnames, currentsong, 0, "ViewSongs");
+                                System.out.print("\n");
+                            } else if (ph.equals("q")) {
+                                break;
+                            }
+                        } else {
+                            System.out.println("Song or command not recognized.");
+                        }
+                    }
+                    break;
 
                 case "ViewSongs":
                     for(String element : songnames) {
                         System.out.println("\t" + element);
                     }
+                    return;
             }
 
         } else {
