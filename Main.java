@@ -1,5 +1,3 @@
-package com.rohan;
-
 import java.io.*;
 import sun.audio.*;
 
@@ -20,12 +18,12 @@ public class Main {
         ArrayList<String> songnames = new ArrayList<>();
         ArrayList<Integer> randomlyused = new ArrayList<>();
 
-        File curdir = new File("src/com/rohan/songs");
+        File curdir = new File("src/com/rohan/songs"); // FIX
         File[] files = curdir.listFiles();
         for(File f : files) {
             if(f.isFile()) {
                 songnames.add(f.getName());
-                soundfiles.add("src/com/rohan/songs/" + f.getName());
+                soundfiles.add("src/com/rohan/songs/" + f.getName()); //FIX
             }
         }
 
