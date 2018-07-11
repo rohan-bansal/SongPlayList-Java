@@ -1,7 +1,7 @@
 # SongPlayList-Java
 A playlist of songs stored on your computer, playable (very much like spotify) from the terminal.
 
-_85% complete_
+_100% complete_
 
 ## Features
 
