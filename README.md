@@ -19,11 +19,7 @@ _100% complete_
 4. Place .wav songs into the songs folder
 4. **IMPORTANT** _The program currently only accepts .wav files. Support for .mp3 in the future._
 
-**`.jar` file:**
-
-In the terminal: `java -jar Song-PlayList.jar`
-
 **`.java` file:**
 
-1. Open terminal, type `javac Main.java`
+1. Open terminal, and type `javac Main.java` if there is no class file
 2. type `java Main`
