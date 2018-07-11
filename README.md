@@ -1,6 +1,8 @@
 # SongPlayList-Java
 A playlist of songs stored on your computer, playable (very much like spotify) from the terminal.
 
+_85% complete_
+
 ## Features
 
 - Add files to song folder, play from command line
