@@ -10,9 +10,6 @@ _95% complete_
 - View song list
 - Shuffle Play
 
-**NOTICE** Program may not work, need to add support for other files
-
-
 ### How to Download
 
 1. Download JDK 8+ (java dev kit)
