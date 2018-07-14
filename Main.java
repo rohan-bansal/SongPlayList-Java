@@ -17,16 +17,17 @@ public class Main {
         ArrayList<String> soundfiles = new ArrayList<>();
         ArrayList<String> songnames = new ArrayList<>();
         ArrayList<Integer> randomlyused = new ArrayList<>();
-
-        File curdir = new File("src/com/rohan/songs"); // FIX
+        System.out.println(System.getProperty("user.dir"));
+        File curdir = new File(System.getProperty("user.dir") + "/songs/"); //
         File[] files = curdir.listFiles();
-        for(File f : files) {
-            if(f.isFile()) {
-                songnames.add(f.getName());
-                soundfiles.add("src/com/rohan/songs/" + f.getName()); //FIX
+        if(files != null) {
+            for(File f : files) {
+                if(f.isFile()) {
+                    songnames.add(f.getName());
+                    soundfiles.add(System.getProperty("user.dir") + "/songs/" + f.getName());
+                }
             }
         }
-
 
         System.out.println("~~~~~~~~~~MENU~~~~~~~~~~\n\t1. Play All Songs\n\t2. Shuffle Songs/Play\n\t3. Play One Song\n\t4. Create Song Queue\n\t5. View Songs\n");
 
